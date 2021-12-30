@@ -1,11 +1,34 @@
-class atm:
+class Atm:
+    def __init__(self,cardnumber,pin):
+        self.cardnumber = cardnumber
+        self.pin = pin
 
-    def __init__(self,card_no,pin_no):
-        self.card_no = card_no
-        self.pin_no = pin_no
+    def check_balance(self):
+        print("Your balance is 50000")
 
-    def CashWithdrawl(self):
-        print("Cash has been withdrawn from your account.")
+    def withdrawl(self,amount):
+        new_amount = 50000 - amount
+        print("you have withdrawn amount "+str(amount) +". Your remaining balance is "+ str(new_amount))
 
-    def BalanceEnquiry(self):
-        print("Your account balance is low.")
+
+def main():
+    Card_number = input("insert your card number:- ")
+    pin_number  = input("enter your pin number:- ")
+
+    new_user =  Atm(Card_number ,pin_number)
+
+    print("Choose your activity ")
+    print("1.Balance Enquriy   2.withdrawl")
+    activity = int(input("enter activity number :- "))
+
+    if (activity == 1):
+        new_user.check_balance()
+    elif (activity == 2):
+        amount = int(input("enter the amount:- "))
+        new_user.withdrawl(amount)
+    else:
+        print("enter a valid number")
+
+
+if __name__ == "__main__":
+    main()
